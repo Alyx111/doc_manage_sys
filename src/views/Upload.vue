@@ -3,7 +3,7 @@
     <SideBar />
     <div class="form-box">
       <div class="top-comp">
-        <span class="cursor"><i class="el-icon-back"></i> 返回 |</span>
+        <span class="cursor"  @click="back"><i class="el-icon-back"></i> 返回 |</span>
         <span style="margin-left: 10px">文件列表</span>
       </div>
 
@@ -52,6 +52,9 @@ export default {
     };
   },
   methods: {
+    back(){
+      this.$router.go(-1)
+    },
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },

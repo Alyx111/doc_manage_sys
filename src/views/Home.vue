@@ -3,7 +3,9 @@
     <SideBar />
     <div class="home_right">
       <div class="top-comp">
-        <span class="cursor"><i class="el-icon-back"></i> 返回 |</span>
+        <span class="cursor" @click="back"
+          ><i class="el-icon-back"></i> 返回 |</span
+        >
 
         <span style="margin-left: 10px">文件列表</span>
       </div>
@@ -12,7 +14,7 @@
           <router-link to="/upload">
             <el-button class="green">文件上传</el-button>
           </router-link>
-          <el-button plain>新建文件夹</el-button>
+          <el-button plain @click="createFolder">新建文件夹</el-button>
         </div>
         <div class="right-box">
           <el-input v-model="keyword" placeholder="请输入文件名" />
@@ -168,9 +170,12 @@ export default {
     };
   },
   created() {
-    this.getDirData();
+    this.getData();
   },
   methods: {
+    back() {
+      this.$router.go(-1);
+    },
     handleNodeClick(item) {
       this.newDirid = item.id;
     },
@@ -188,6 +193,7 @@ export default {
       });
       if (res.data.code == 0) {
         this.$message("创建文件夹成功");
+        this.form3.fileName = "";
       }
     },
     async downloadFile(item) {
