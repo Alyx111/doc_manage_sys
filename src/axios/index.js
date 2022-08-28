@@ -1,5 +1,5 @@
 // 1. 引入
-import axios from "axios";
+import axios from 'axios'
 
 // 2. 创建实例
 const instance = axios.create({
@@ -9,7 +9,10 @@ const instance = axios.create({
     // 请求超时时间
     timeout: 10000,
     // 每次请求携带cookie
-    withCredentials: true
+    withCredentials: true,
+    headers:{
+        token:localStorage.getItem("token")
+    }
 });
 
 // instance.interceptors.response.use(

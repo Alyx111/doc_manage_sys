@@ -27,12 +27,7 @@ export default {
   methods: {
     async login() {
       console.log(1111, this.form.name, this.form.pass);
-      const res={
-        data:{
-          code:0,
-          data:'xxx'
-        }
-      }
+
       // const res = await this.$axios({
       //   url: "/mpUser/login",
       //   method: "post",
@@ -41,7 +36,13 @@ export default {
       //     mpPwd: this.form.pass,
       //   },
       // });
-
+      const res = {
+        data: {
+          code: 0,
+          data: "b4b32a6b84c545018395b3108ed0900c1615253929799",
+          msg: "success",
+        },
+      };
       console.log(res.data.code);
       if (res.data.code == 0) {
         localStorage.setItem("token", res.data.data);
@@ -54,7 +55,6 @@ export default {
 };
 </script>
 <style>
-
 .login {
   height: 100%;
   background-image: url("../assets/background_img.jpg");

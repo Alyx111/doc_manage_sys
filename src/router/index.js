@@ -20,6 +20,17 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import("../views/Home.vue"),
   },
+  {
+    path: "/upload",
+    name: "upload",
+    meta:{
+      title:"文件上传"
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import("../views/Upload.vue"),
+  },
 ];
 
 const router = new VueRouter({
